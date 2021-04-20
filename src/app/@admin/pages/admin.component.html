@@ -1,6 +1,19 @@
-<h1>Admin</h1>
-<ul>
-  <li><a [routerLink]="['/home']" routerLinkActive="router-link-active" >Volver a Home</a></li>
-  <li><a [routerLink]="['/admin/users']" routerLinkActive="router-link-active" >Users</a></li>
-</ul>
-<router-outlet></router-outlet>
+<div class="d-flex" id="wrapper">
+
+  <!-- Sidebar -->
+  <app-admin-sidebar *ngIf="toggleValue"></app-admin-sidebar>
+  <!-- /#sidebar-wrapper -->
+
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+
+    <app-admin-header (toggleEvent)="toggledState($event)" ></app-admin-header>
+
+    <div class="container-fluid">
+      <app-admin-title></app-admin-title>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <!-- /#page-content-wrapper -->
+
+</div>
